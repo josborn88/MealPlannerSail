@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->string('name');
             $table->json('categories');
             $table->string('notes');
-            $table->timestamp('last_made');
-        })
+            $table->timestamp('last_made')->nullable();
+        });
     }
 
     /**

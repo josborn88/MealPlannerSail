@@ -20,7 +20,6 @@ class Meal extends Model
 
     protected $casts = [
         'last_made' => 'datetime',
-        'password' => 'hashed',
         'categories' => 'array',
     ];
 
