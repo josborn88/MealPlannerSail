@@ -26,4 +26,43 @@ class MealServiceTest extends TestCase
         $this->assertEquals($meal->name, $mealFromId->name);
     }
 
+    public function test_getByName_returnsOneMeal_withNameWithOneMatch(): void
+    {
+        $meal = Meal::factory()->create([
+            'name' => 'test One',
+            'categories' => json_encode([]),
+            'notes' => 'test notes',
+        ]);
+
+        $mealService = new MealService();
+
+        $mealsFromName = $mealService->getByName('test');
+
+        $this->assertCount(1, $mealsFromName);
+        $this->assertEquals($meal->name, $mealsFromName[0]['name']);
+    }
+
+    public function test_getByName_returnsTwoMeal_withNameWithTwoMatch(): void
+    {
+        $meal = Meal::factory()->create([
+            'name' => 'test One',
+            'categories' => json_encode([]),
+            'notes' => 'test notes',
+        ]);
+
+        $mealTwo = Meal::factory()->create([
+            'name' => 'test two',
+            'categories' => json_encode([]),
+            'notes' => 'test notes',
+        ]);
+
+        $mealService = new MealService();
+
+        $mealsFromName = $mealService->getByName('test');
+
+        $this->assertCount(2, $mealsFromName);
+        $this->assertEquals($meal->name, $mealsFromName[0]['name']);
+        $this->assertEquals($mealTwo->name, $mealsFromName[1]['name']);
+    }
+
 }

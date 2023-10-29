@@ -15,9 +15,9 @@ class MealService implements MealServiceInterface
         return Meal::query()->where('id', $id)->first();
     }
 
-    public function getByName(string $name)
+    public function getByName(string $name): array
     {
-        
+        return Meal::query()->where('name', 'like', '%' . $name . '%')->get()->toArray();   
     }
 
     public function getByCategory(string $category)

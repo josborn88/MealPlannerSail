@@ -9,7 +9,7 @@ interface MealServiceInterface
 
     public function getById(int $id): Meal;
     
-    public function getByName(string $name);
+    public function getByName(string $name): array;
 
     public function getByCategory(string $category);
 }
