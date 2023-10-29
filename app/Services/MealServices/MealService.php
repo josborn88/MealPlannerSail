@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\MealService;
+namespace App\Services\MealServices;
 
 use App\Models\Meal;
 class MealService implements MealServiceInterface
@@ -12,7 +12,7 @@ class MealService implements MealServiceInterface
 
     public function getById(int $id): Meal
     {
-        return new Meal();
+        return Meal::query()->where('id', $id)->first();
     }
 
     public function getByName(string $name)

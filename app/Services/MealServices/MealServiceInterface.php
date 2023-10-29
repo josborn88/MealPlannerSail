@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\MealService;
+namespace App\Services\MealServices;
 
 use App\Models\Meal;
 interface MealServiceInterface

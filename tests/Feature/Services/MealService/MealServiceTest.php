@@ -4,7 +4,7 @@ namespace Tests\Feature\Services\MealService;
 
 use Tests\TestCase;
 use App\Models\Meal;
-use App\Services\MealService\MealService;
+use App\Services\MealServices\MealService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MealServiceTest extends TestCase
