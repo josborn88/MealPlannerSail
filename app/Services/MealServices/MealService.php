@@ -5,9 +5,9 @@ namespace App\Services\MealServices;
 use App\Models\Meal;
 class MealService implements MealServiceInterface
 {
-    public function getAllMeals()
+    public function getAllMeals(): array
     {
-        
+        return Meal::query()->get()->toArray();
     }
 
     public function getById(int $id): Meal
@@ -21,6 +21,11 @@ class MealService implements MealServiceInterface
     }
 
     public function getByCategory(string $category)
+    {
+        
+    }
+
+    public function createMeal(): Meal
     {
         
     }
