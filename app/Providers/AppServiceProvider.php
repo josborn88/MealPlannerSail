@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Services\MealServices\MealServiceInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Services\MealServices\MealService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(MealServiceInterface::class, function ($app) {
+            return new MealService();
+        });
     }
 
     /**
