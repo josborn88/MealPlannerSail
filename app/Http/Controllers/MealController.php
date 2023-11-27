@@ -18,6 +18,16 @@ class MealController extends Controller
     {
         $meals = $this->mealService->getAllMeals();
 
+        $meals = [
+            [
+                'id' => 1,
+                'name' => 'test meal',
+            ],
+            [
+                'id' => 2,
+                'name' => 'tacos'
+            ]
+        ];
         return response()->json($meals, Response::HTTP_OK);
     }
 
